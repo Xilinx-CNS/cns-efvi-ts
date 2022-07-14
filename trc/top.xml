@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- (c) Copyright 2020 - 2022 Xilinx, Inc. All rights reserved. -->
+<trc_db last_match="true">
+  <test name="efvi-ts" type="package">
+    <objective>SFC EF_VI API Test Suite</objective>
+
+    <xi:include href="globals.xml" parse="xml"
+                xmlns:xi="http://www.w3.org/2003/XInclude"/>
+
+    <iter result="PASSED">
+      <notes/>
+
+      <xi:include href="usecases.xml" parse="xml"
+                  xmlns:xi="http://www.w3.org/2003/XInclude"/>
+
+      <test name="prologue" type="script">
+        <objective/>
+        <notes/>
+        <iter result="PASSED">
+          <arg name="env"/>
+          <notes/>
+        </iter>
+      </test>
+
+      <test name="epilogue" type="script">
+        <objective/>
+        <notes/>
+        <iter result="PASSED">
+          <arg name="env"/>
+          <notes/>
+        </iter>
+      </test>
+
+    </iter>
+  </test>
+</trc_db>

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- (c) Copyright 2020 - 2022 Xilinx, Inc. All rights reserved. -->
+<package version="1.0">
+
+    <description>SFC EF_VI API Test Suite</description>
+
+    <author mailto="Damir.Mansurov@oktetlabs.ru"/>
+
+    <!--- @page arg_types Test argument types
+    @defgroup arg_types Test argument types
+    @{
+    Definition and description of argument types.
+    -->
+
+    <session track_conf="silent">
+
+        <enum name="ip_proto">
+            <value reqs="UDP">IPPROTO_UDP</value>
+            <value reqs="TCP">IPPROTO_TCP</value>
+        </enum>
+
+        <!-- Environment types definition -->
+
+        <!--- @section arg_types_env Environment description
+        Every test has argument @b env written in YACC which describes location of IUT
+        and Tester RPC servers, interfaces and addresses.
+         -->
+
+        <!--- @subsection arg_types_env_iut_only env.iut_only
+        Create IUT RPC server only.
+        -->
+        <var name="env.iut_only" global="true">
+            <value>{{{'pco_iut':IUT}}}</value>
+        </var>
+
+        <!--- @subsection arg_types_env_peer2peer env.peer2peer
+        IUT and tester are located on two different hosts which
+        are connected directly using @b SFC NICs. IPv4 addresses
+        are issued for testing.
+        -->
+        <var name="env.peer2peer" global="true">
+            <value>'net':IUT{'iut_host'{{'pco_iut':IUT},addr:'iut_addr':inet:unicast,addr:'wild_addr':inet:wildcard,addr:'alien_addr':inet:alien,if:'iut_if',addr:'iut_lladdr':ether:unicast},'tst_host'{{'pco_tst':tester},addr:'tst_addr':inet:unicast,if:'tst_if',addr:'tst_lladdr':ether:unicast,addr:'alien_link_addr':ether:alien,addr:'tst_alien_addr':inet:alien,addr:'tst_fake_addr':inet:fake}}</value>
+        </var>
+
+        <!--- @subsection arg_types_env_peer2peer_ipv6 env.peer2peer_ipv6
+        IUT and tester are located on two different hosts which are
+        connected directly using @b SFC NICs. IPv6 addresses are issued for
+        testing.
+        -->
+        <var name="env.peer2peer_ipv6" global="true">
+            <value reqs="IP6">'net':IUT{'iut_host'{{'pco_iut':IUT},addr:'iut_addr':inet6:unicast,addr:'wild_addr':inet6:wildcard,addr:'alien_addr':inet6:alien,if:'iut_if',addr:'iut_lladdr':ether:unicast},'tst_host'{{'pco_tst':tester},addr:'tst_addr':inet6:unicast,if:'tst_if',addr:'tst_lladdr':ether:unicast,addr:'alien_link_addr':ether:alien,addr:'tst_alien_addr':inet6:alien,addr:'tst_fake_addr':inet6:fake}}</value>
+        </var>
+
+        <!-- The test suite prologue -->
+        <prologue>
+            <script name="prologue"/>
+            <arg name="env" ref="env.peer2peer"/>
+        </prologue>
+
+        <epilogue>
+            <script name="epilogue"/>
+            <arg name="env" ref="env.peer2peer"/>
+        </epilogue>
+
+        <!-- Packages definition -->
+        <run>
+            <package name="usecases"/>
+        </run>
+
+    </session>
+
+    <!--- @} -->
+
+</package>

@@ -1,0 +1,11 @@
+---
+# SPDX-License-Identifier: Apache-2.0
+# (c) Copyright 2020 - 2022 Xilinx, Inc. All rights reserved.
+
+- set:
+    - oid: "/local:${TE_IUT_TA_NAME_NS}/socklib:"
+      value: "${SFC_LIBCIUL}"
+
+- add:
+    - oid: "/local:${TE_IUT_TA_NAME_NS}/libdir:"
+      value: "${L5_SOCKAPI_LIBDIR:-/usr/lib}"

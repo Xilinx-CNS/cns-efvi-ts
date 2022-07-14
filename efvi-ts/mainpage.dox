@@ -1,0 +1,39 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* (c) Copyright 2020 - 2022 Xilinx, Inc. All rights reserved. */
+/** @mainpage
+
+@tableofcontents
+
+@section copyright_notice Copyright Notice
+
+(c) Copyright 2020 - 2022 Xilinx, Inc. All rights reserved.
+
+@section efvi_introduction Introduction
+
+EF_VI API Test Suite is aimed to check certain implementation of the ef_vi
+API functions. It uses test-environment as it's engine.
+
+The suite consists of several packages, see @ref efvi_specification for top
+level packages list of <a href="modules.html"><b>Table of Contents</b></a> for full packages tree.
+
+See @ref efvi_term_abrev for details on the subject.
+
+@section efvi_refs References
+- @ref tester_requirements
+- @ref efvi_tags_details
+
+@section efvi_conv Conventions
+- Parameters of tests are referred in the text using bold italic
+  (for example, @p pco_iut).
+
+- Names of formal arguments of Socket API functions appear in italic
+  (for example, @a addrlen).
+
+- Standard defines, elements of enumerations as well as @b errno values
+  appear in monotype font (for example, @c AF_INET, @c ENOMEM).
+
+@section efvi_specification Test Specification
+
+@copydoc efvi
+
+*/

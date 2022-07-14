@@ -1,0 +1,21 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* (c) Copyright 2020 - 2022 Xilinx, Inc. All rights reserved. */
+/**
+
+@defgroup usecases Reliability in Normal Use
+@ingroup efviapi
+@{
+
+Test suite on reliability in normal use EF_VI API functions.
+
+@author Damir Mansurov <Damir.Mansurov@oktetlabs.ru>
+
+@par Tests:
+
+-# @ref usecases-driver_open_close
+-# @ref usecases-simple_recv
+-# @ref usecases-simple_send
+
+@} usecases
+
+*/

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- (c) Copyright 2020 - 2022 Xilinx, Inc. All rights reserved. -->
+<test name="usecases" type="package">
+  <objective>usecases tests</objective>
+  <notes/>
+  <iter result="PASSED">
+    <notes/>
+    <test name="driver_open_close" type="script">
+      <objective/>
+      <notes/>
+      <iter result="PASSED">
+        <arg name="env"/>
+        <notes/>
+      </iter>
+    </test>
+    <test name="simple_recv" type="script">
+      <objective>Check that data can be received with EF_VI API</objective>
+      <notes/>
+      <iter result="PASSED">
+        <arg name="env"/>
+        <arg name="protocol"/>
+        <arg name="merge_events"/>
+        <arg name="receive_push"/>
+        <notes/>
+      </iter>
+    </test>
+    <test name="simple_send" type="script">
+      <objective>Check that data can be sent with EF_VI API</objective>
+      <notes/>
+      <iter result="PASSED">
+        <arg name="env"/>
+        <arg name="protocol"/>
+        <arg name="transmit_push"/>
+        <arg name="transmitv"/>
+        <notes/>
+      </iter>
+    </test>
+  </iter>
+</test>

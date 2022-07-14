@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: Apache-2.0
+# (c) Copyright 2020 - 2022 Xilinx, Inc. All rights reserved.
+#
+# Here are efvi-ts specific environment processing and configuraition
+#
+
+. ${SF_TS_CONFDIR}/scripts/lib.run
+. ${SF_TS_CONFDIR}/scripts/sfc_onload_gnu
+export_SFC_ONLOAD_GNU
+
+if test "x$SFC_ONLOAD_LOCAL" == "xyes" ; then
+    mkdir -p "${EFVI_TS_LIBDIR}/copied_headers"
+    scp_dir "$TE_IUT" "${SFC_ONLOAD_GNU}/../../src/include/etherfabric" \
+            "${EFVI_TS_LIBDIR}/copied_headers/etherfabric"
+    ln_sf_safe "${EFVI_TS_LIBDIR}/copied_headers/etherfabric" \
+               "${EFVI_TS_LIBDIR}/etherfabric" ef_vi.h
+else
+    ln_sf_safe "${ONLOAD_TREE}/src/include/etherfabric" \
+               "${EFVI_TS_LIBDIR}/etherfabric" ef_vi.h
+fi
+
+export SF_TS_IUT_RPCPROVIDER=ta_rpcs
+export SF_TS_TST_RPCPROVIDER=ta_rpcs
+
+if test -z "${SFC_LIBCIUL}" ; then
+    if test "x$SFC_ONLOAD_LOCAL" == "xyes" ; then
+        export SFC_LIBCIUL="iut:${SFC_ONLOAD_GNU}/lib/ciul/libciul.so"
+    else
+        export SFC_LIBCIUL="${SFC_ONLOAD_GNU}/lib/ciul/libciul.so"
+    fi
+fi

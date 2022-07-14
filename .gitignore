@@ -1,0 +1,29 @@
+syntax: glob
+*~
+.reviewboardrc
+te_tmp/
+build/
+build.log
+builder.log.*
+cscope.*
+tags
+TAGS
+GPATH
+GRTAGS
+GTAGS
+
+# Domain-specific files
+
+efvi-ts/doxygen.warn
+efvi-ts/doc/html
+html/
+talib_efvi_ts/etherfabric
+talib_efvi_ts/copied_headers
+tmp_raw_log
+log.txt
+log_plain.xml
+log_struct.xml
+ta.Agt_?
+ta.LogListener
+ta.list
+trc-report.html

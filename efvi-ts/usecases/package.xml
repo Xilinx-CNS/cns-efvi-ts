@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- (c) Copyright 2020 - 2022 Xilinx, Inc. All rights reserved. -->
+<package version="1.0">
+
+    <description>Main use cases of EF_VI API</description>
+
+    <author mailto="Damir.Mansurov@oktetlabs.ru"/>
+
+    <session>
+
+        <run>
+            <script name="driver_open_close"/>
+            <arg name="env">
+              <value ref="env.iut_only"/>
+            </arg>
+        </run>
+
+        <run>
+            <script name="simple_recv"/>
+            <arg name="env">
+              <value ref="env.peer2peer"/>
+              <value ref="env.peer2peer_ipv6"/>
+            </arg>
+            <arg name="protocol" type="ip_proto"/>
+            <arg name="merge_events" type="boolean"/>
+            <arg name="receive_push" type="boolean"/>
+        </run>
+
+        <run>
+            <script name="simple_send" track_conf="silent"/>
+            <arg name="env">
+              <value ref="env.peer2peer"/>
+              <value ref="env.peer2peer_ipv6"/>
+            </arg>
+            <arg name="protocol" type="ip_proto"/>
+            <arg name="transmit_push" type="boolean"/>
+            <arg name="transmitv" type="boolean"/>
+        </run>
+
+    </session>
+</package>

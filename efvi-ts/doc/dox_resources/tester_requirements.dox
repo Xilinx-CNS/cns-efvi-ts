@@ -1,0 +1,30 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* (c) Copyright 2020 - 2022 Xilinx, Inc. All rights reserved. */
+/**
+@defgroup tester_requirements Tester requirements list
+@{
+@table_2c_head1{Requirement name}
+@table_2c_head2{Description}
+
+@table_2c_section Requirements to control tests execuition flow:
+@table_2c_first BROKEN
+@table_2c_second Tests which are currenty broken and should
+                 not be run in nigth testing (in comments
+                 Bug ID registered for the problem
+                 should be mentioned)
+@table_2c_first ENV-GW
+@table_2c_second Gateway behind IUT interface
+
+@table_2c_first IP6
+@table_2c_second IPv6 packets
+
+@table_2c_first TCP
+@table_2c_second TCP packets
+
+@table_2c_first UDP
+@table_2c_second UDP packets
+
+@table_2c_end
+
+@}
+*/
